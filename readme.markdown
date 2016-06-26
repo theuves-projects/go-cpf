@@ -10,7 +10,7 @@ Com `go-get`:
 $ go get github.com/theuves/go-cpf
 ```
 
-Veja a [documentação aqui](#) (ou use `$ godoc github.com/theuves/go-cpf`).
+Veja a [documentação aqui](https://godoc.org/github.com/theuves/go-cpf) (ou use `$ godoc github.com/theuves/go-cpf`).
 
 ## Exemplos
 
