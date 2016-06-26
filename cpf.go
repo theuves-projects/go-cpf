@@ -9,27 +9,41 @@ import (
     "time"
 )
 
+// Inverter uma string.
+func reverse(input string) string {
+    inverted := make([]byte, len(input))
+
+    for i := 0; i < len(input); i++ {
+        inverted[i] = input[len(input) - 1 - i]
+    }
+
+    return string(inverted)
+}
+
 // Calcular os digitos verificadores
 // de um número de CPF.
 func digits(nums string) string {
     var cpf = []int{}
-    scpf := strings.Split(nums, "")
+    scpf := strings.Split(reverse(nums), "")
 
-    var v1, v2 int
 
+    // Transforma todos os valores da array
+    // que são strings em inteiros.
     for i := 0; i < len(scpf); i++ {
         if n, err := strconv.Atoi(scpf[i]); err == nil {
             cpf = append(cpf, n)
         }
     }
 
+    var v1, v2 int
+
     for i := 0; i < 9; i++ {
-        v2 = v2 + cpf[i] * (9 - (i % 10))
-        v1 = v1 + cpf[i] * (9 - ((i + 1) % 10))
+        v1 = v1 + cpf[i] * (9 - (i % 10))
+        v2 = v2 + cpf[i] * (9 - ((i + 1) % 10))
     }
 
-    v2 = (v2 % 11) % 10
-    v1 = ((v1 + v2 * 9) % 11) % 10
+    v1 = (v1 % 11) % 10
+    v2 = ((v2 + v1 * 9) % 11) % 10
 
     return strconv.Itoa(v1) + strconv.Itoa(v2)
 }
