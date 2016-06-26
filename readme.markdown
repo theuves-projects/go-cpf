@@ -21,7 +21,7 @@ package main
 
 import (
     "fmt"
-    "get github.com/theuves/go-cpf"
+    "github.com/theuves/go-cpf"
 )
 
 func main() {
