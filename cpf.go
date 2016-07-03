@@ -13,8 +13,8 @@ import (
 func reverse(input string) string {
     inverted := make([]byte, len(input))
 
-    for i := 0; i < len(input); i++ {
-        inverted[i] = input[len(input) - 1 - i]
+    for i := len(input) - 1; i >= 0; i-- {
+        inverted[len(input) - 1 - i] = input[i]
     }
 
     return string(inverted)
