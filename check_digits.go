@@ -1,16 +1,5 @@
 package cpf
 
-func reverseDigits(digits [9]int) [9]int {
-	var invertedDigits [9]int
-	const maxLength = 8
-
-	for i := maxLength; i >= 0; i-- {
-		invertedDigits[maxLength - i] = digits[i]
-	}
-
-	return invertedDigits
-}
-
 func getCheckDigits(digits [9]int) [2]int {
 	var (
 		v1 int
@@ -28,4 +17,15 @@ func getCheckDigits(digits [9]int) [2]int {
 	v2 = ((v2 + v1*9) % 11) % 10
 
 	return [2]int{v1, v2}
+}
+
+func reverseDigits(digits [9]int) [9]int {
+	var invertedDigits [9]int
+	const maxLength = 8
+
+	for i := maxLength; i >= 0; i-- {
+		invertedDigits[maxLength - i] = digits[i]
+	}
+
+	return invertedDigits
 }
