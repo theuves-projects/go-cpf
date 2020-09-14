@@ -21,7 +21,7 @@ func getCheckDigits(digits [9]int) [2]int {
 	return [2]int{v1, v2}
 }
 
-// Resverse digits (necessary to parse CPF digits).
+// Reverse digits (necessary to parse CPF digits).
 func reverseDigits(digits [9]int) [9]int {
 	var invertedDigits [9]int
 	const maxLength = 8
