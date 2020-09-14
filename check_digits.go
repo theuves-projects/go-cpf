@@ -11,8 +11,8 @@ func getCheckDigits(digits [9]int) [2]int {
 	digits = reverseDigits(digits)
 
 	for i := 0; i < 9; i++ {
-		v1 = v1 + digits[i] * (9 - (i % 10))
-		v2 = v2 + digits[i] * (9 - ((i + 1) % 10))
+		v1 = v1 + digits[i]*(9-(i%10))
+		v2 = v2 + digits[i]*(9-((i+1)%10))
 	}
 
 	v1 = (v1 % 11) % 10
@@ -27,7 +27,7 @@ func reverseDigits(digits [9]int) [9]int {
 	const maxLength = 8
 
 	for i := maxLength; i >= 0; i-- {
-		invertedDigits[maxLength - i] = digits[i]
+		invertedDigits[maxLength-i] = digits[i]
 	}
 
 	return invertedDigits
