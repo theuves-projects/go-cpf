@@ -10,7 +10,7 @@ func Format(cpf string) (string, error) {
   r := regexp.MustCompile(`^(\d{1,3})\.?(\d{1,3})\.?(\d{1,3})-?(\d{1,2})$`)
 
   if !r.MatchString(cpf) {
-      return "", errors.New("cpf.Format: CPF is not valid")
+      return "", errors.New("invalid CPF number")
   }
 
   return r.ReplaceAllString(cpf, "$1.$2.$3-$4"), nil
