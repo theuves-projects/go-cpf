@@ -31,6 +31,13 @@ func main() {
 }
 ```
 
+## Build status
+
+| Branch | Badge |
+|:---:|:---:|
+| `master` | ![Go](https://github.com/theuves/go-cpf/workflows/Go/badge.svg?branch=master) |
+| `dev` | ![Go](https://github.com/theuves/go-cpf/workflows/Go/badge.svg?branch=dev) |
+
 ## Licença
 
 MIT &copy; [Matheus Alves](https://github.com/theuves)
