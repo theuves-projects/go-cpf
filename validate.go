@@ -6,27 +6,50 @@ import (
   "strconv"
 )
 
+type CpfNumber struct {
+  digits [9]int
+  check_digits [2]int
+}
+
 // Validate a CPF number
 func Validate(cpf string) bool {
-  var allDigits []int = getAllDigits(cpf)
+  cpfParsed, err := parseCpf(cpf)
 
-  if (len(allDigits) != 11) {
+  if err != nil {
     return false
   }
 
-  var digits []int = allDigits[:9]
-  var check_digits []int = getCheckDigits(digits)
+  var check_digits [2]int = getCheckDigits(cpfParsed.digits)
 
-  return check_digits[0] == allDigits[10] && check_digits[1] == allDigits[11]
+  return check_digits == cpfParsed.check_digits
+}
+
+// Parse a CPF number
+func parseCpf(cpf string) (CpfNumber, error) {
+  var allDigits []int = getAllDigits(cpf)
+  var cpfNumber CpfNumber = CpfNumber{}
+
+  if len(allDigits) != 11 {
+    return cpfNumber, errors.New("invalid CPF number")
+  }
+
+  for i := 0; i < cap(cpfNumber.digits); i++ {
+    cpfNumber.digits[i] = allDigits[:9][i]
+  }
+  for i := 0; i < cap(cpfNumber.check_digits); i++ {
+    cpfNumber.check_digits[i] = allDigits[9:][i]
+  }
+
+  return cpfNumber, nil;
 }
 
 // Get only digits ([]int) from a string
-func getAllDigits(str string) string {
+func getAllDigits(str string) []int {
   r := regexp.MustCompile(`\D+`)
   return stringsToInts(r.ReplaceAllString(str, ""))
 }
 
-// Convert string to []int
+// Convert string of digits to []int
 func stringsToInts(str string) []int {
 	var arrayInt = []int{}
 	var value int
