@@ -13,15 +13,15 @@ type CpfNumber struct {
 
 // Validate a CPF number
 func Validate(cpf string) bool {
-  cpfParsed, err := parseCpf(cpf)
+  cpfNumber, err := parseCpf(cpf)
 
   if err != nil {
     return false
   }
 
-  var check_digits [2]int = getCheckDigits(cpfParsed.digits)
+  var check_digits [2]int = getCheckDigits(cpfNumber.digits)
 
-  return check_digits == cpfParsed.check_digits
+  return check_digits == cpfNumber.check_digits
 }
 
 // Parse a CPF number
