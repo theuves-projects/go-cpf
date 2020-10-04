@@ -33,3 +33,10 @@ func TestGetAllDigits(t *testing.T) {
 
 	assert.Equal(t, expected, param, "should get all digits")
 }
+
+func TestStringsToInts(t *testing.T) {
+	param := stringsToInts("11144477735")
+	expected := []int{1, 1, 1, 4, 4, 4, 7, 7, 7, 3, 5}
+
+	assert.Equal(t, expected, param, "should get all digits")
+}
