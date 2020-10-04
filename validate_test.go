@@ -8,7 +8,7 @@ import (
 func TestValidate(t *testing.T) {
 	var checkCpf bool
 
-  checkCpf = Validate("111.444.777-35")
+	checkCpf = Validate("111.444.777-35")
 	assert.Equal(t, true, checkCpf, "should be 'true'")
 
 	checkCpf = Validate("218.425.985-38")
