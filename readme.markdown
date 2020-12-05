@@ -25,9 +25,14 @@ import (
 )
 
 func main() {
-    fmt.Println(cpf.Format("01234567890")) // 012.345.678-90, <nil>
-    fmt.Println(cpf.Generate()) // retorna um número de CPF aleaatório válido
-    fmt.Println(cpf.Validate("012.345.678-90")) // true
+    fmt.Println(cpf.Format("01234567890"))
+    //-> 012.345.678-90, <nil>
+
+    fmt.Println(cpf.Generate())
+    //-> Retorna um número de CPF aleatório e válido
+
+    fmt.Println(cpf.Validate("012.345.678-90"))
+    //-> true
 }
 ```
 
